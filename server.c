@@ -48,7 +48,6 @@ int main () {
         exit(EXIT_FAILURE);
     }
     printf("Socket successfully created");
-    return 0;
 }   
 
     //set socket options
@@ -57,9 +56,9 @@ int main () {
             exit(EXIT_FAILURE)
         }
 
-        address.sin_family = AF_INET;
-        address.sin_addr.s_addr = INADDR_ANY;
-        address.sin_port = htons(PORT);
+    address.sin_family = AF_INET;
+    address.sin_addr.s_addr = INADDR_ANY;
+    address.sin_port = htons(PORT);
 
     if(bind(server_fd(struct sockaddr *)&address, sizeof(address)) == - 1) {
         perror("Bind Failed");
@@ -109,7 +108,7 @@ int main () {
             "<html><body><h1>About Page</h1><p>Built with raw C sockets.</p></body></html>");
         } else {
             send_response(client_fd, 404, "Method Not Allowed", "text/html",
-            "method not allwoed");
+            "method not allowed");
         }
         close(client_fd);
     }
