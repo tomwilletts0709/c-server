@@ -112,6 +112,17 @@ int main () {
         }
         close(client_fd);
     }
+    if (strcmp(method, "POST") == 0{
+        if(strcmp(path, "/") ==0){
+            send_response(client_fd, 201, "OK", "text/html",
+            "<html<body><h1>DEUS EX MACHINA!</>h1<body></html>");
+        } else {
+            send_response(client_fd, 404, "Method Not Allowed", "text/html",
+            "method not allowed")
+        }
+        close(client_fd);
+    })
+
     close(server_fd);
     return 0;
 
