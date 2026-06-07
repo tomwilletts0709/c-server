@@ -123,6 +123,20 @@ int main () {
         close(client_fd);
     })
 
+    if (strcmp(method, "DELETE") == 0) {
+        if(strcmp(path, "/") == 0){
+            send_response(client_fd, 204, "DELETED", "text/html",
+            "<html<body><h1>Deleted!</>h1<body></html>");
+        } else {
+            send_response(client_fd, 404, "method not allowed", "text/html",
+            "method now allowed")
+        }
+        clost(client_fd);
+    }
+    if (strcmp(method, "PATCH") == 0) {
+        send_response(client_fd, )
+    })
+
     close(server_fd);
     return 0;
 
